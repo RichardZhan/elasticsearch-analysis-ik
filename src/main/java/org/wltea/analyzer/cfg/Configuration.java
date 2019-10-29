@@ -27,6 +27,15 @@ public class Configuration {
 	//是否启用小写处理
 	private boolean enableLowercase=true;
 
+	//测试时使用的构造函数
+	public Configuration(boolean use_smart, boolean enable_lowercase, boolean enable_remote_dict){
+		this.useSmart = use_smart;
+		this.enableLowercase = enable_lowercase;
+		this.enableRemoteDict = enable_remote_dict;
+
+		Dictionary.initial(this);
+	}
+
 
 	@Inject
 	public Configuration(Environment env,Settings settings) {
